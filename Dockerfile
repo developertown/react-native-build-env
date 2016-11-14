@@ -34,3 +34,18 @@ RUN \
 # React Native Tools
 RUN \
      npm install -g react-native-cli
+
+# Fix up permissions
+RUN chown -R root:root /opt && chmod +x $ANDROID_HOME/tools/android
+
+RUN \
+     adduser \
+       --disabled-password \
+       --shell /bin/bash \
+       --gecos "App User" \
+       app \
+  && mkdir /app \
+  && chown -R app:app /app
+
+WORKDIR /app
+USER app
