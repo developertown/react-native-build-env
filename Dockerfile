@@ -27,7 +27,12 @@ RUN \
 COPY android_sdk_install.sh /opt
 RUN \
      /opt/android_sdk_install.sh "Android SDK Build-tools, revision 23.0.1" \
+  && /opt/android_sdk_install.sh "Android SDK Build-tools, revision 23.0.3" \
   && /opt/android_sdk_install.sh "SDK Platform Android 6.0, API 23, revision 3" \
+  && /opt/android_sdk_install.sh "Android Support Repository, revision 39" \
+  && /opt/android_sdk_install.sh "Google APIs, Android API 23, revision 1" \
+  && /opt/android_sdk_install.sh "Google Play services, revision 37" \
+  && /opt/android_sdk_install.sh "Google Repository, revision 38" \
   && chown -R root:root $ANDROID_HOME \
   && chmod +x $ANDROID_HOME/tools/android \
   && rm -f /opt/android_sdk_install.sh
