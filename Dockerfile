@@ -37,6 +37,12 @@ RUN \
   && chmod +x $ANDROID_HOME/tools/android \
   && rm -f /opt/android_sdk_install.sh
 
+#  - Android SDK runtime dependencies
+RUN \
+     apt-get install -y \
+       lib32stdc++6 \
+       lib32z1
+
 # React Native Tools
 RUN \
      npm install -g react-native-cli
