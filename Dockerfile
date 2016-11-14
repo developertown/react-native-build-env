@@ -44,7 +44,10 @@ RUN \
        --shell /bin/bash \
        --gecos "App User" \
        app \
+  && mkdir /home/app/.gradle \
+  && mkdir /home/app/.npm \
   && mkdir /app \
+  && chown -R app:app /home/app \
   && chown -R app:app /app
 
 WORKDIR /app
