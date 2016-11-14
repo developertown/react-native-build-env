@@ -26,7 +26,7 @@ RUN \
 # Android SDKs and Tools
 COPY android_sdk_install.sh /opt
 RUN \
-     /opt/android_sdk_install.sh "Android SDK Platform-tools, revision 25" \
+     /opt/android_sdk_install.sh "Android SDK Build-tools, revision 23.0.1" \
   && /opt/android_sdk_install.sh "SDK Platform Android 6.0, API 23, revision 3" \
   && chown -R root:root $ANDROID_HOME \
   && chmod +x $ANDROID_HOME/tools/android \
