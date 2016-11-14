@@ -26,17 +26,15 @@ RUN \
 # Android SDKs and Tools
 COPY android_sdk_install.sh /opt
 RUN \
-     echo "Updating Android SDK installation index..." \
-  && /opt/android_sdk_install.sh "Android SDK Platform-tools, revision 25" \
-  && /opt/android_sdk_install.sh "SDK Platform Android 7.0, API 24, revision 2" \
+     /opt/android_sdk_install.sh "Android SDK Platform-tools, revision 25" \
+  && /opt/android_sdk_install.sh "SDK Platform Android 6.0, API 23, revision 3" \
+  && chown -R root:root $ANDROID_HOME \
+  && chmod +x $ANDROID_HOME/tools/android \
   && rm -f /opt/android_sdk_install.sh
 
 # React Native Tools
 RUN \
      npm install -g react-native-cli
-
-# Fix up permissions
-RUN chown -R root:root /opt && chmod +x $ANDROID_HOME/tools/android
 
 RUN \
      adduser \
